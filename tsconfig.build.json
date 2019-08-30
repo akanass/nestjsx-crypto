@@ -1,0 +1,20 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "types": [
+            "node",
+            "node-rsa",
+            "pem",
+            "jsonwebtoken",
+            "randomstring"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "test",
+        "tools"
+    ]
+}

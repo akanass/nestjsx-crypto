@@ -1,0 +1,93 @@
+{
+    "name": "@akanass/nestjsx-crypto",
+    "version": "1.0.0",
+    "description": "NestJS crypto module provides some functions for security features like AES key, Key pair, RSA key, PKCS12, Certificate, PEM and more",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "private": false,
+    "scripts": {
+        "pretest": "make clean && make pretest",
+        "test": "make test",
+        "coveralls": "make coveralls",
+        "packaging": "make packaging",
+        "prebuild": "make clean && make pretest && make test",
+        "build": "make tsc",
+        "postbuild": "make packaging"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:akanass/nestjsx-crypto.git"
+    },
+    "keywords": [
+        "Crypto",
+        "RSA",
+        "PEM",
+        "PrivateKey",
+        "PublicKey",
+        "Certificate",
+        "RandomString",
+        "AES",
+        "PKCS12",
+        "KeyPair",
+        "JWT",
+        "NestJS",
+        "Framework",
+        "NodeJS",
+        "Node",
+        "Streams",
+        "Async",
+        "Decorator",
+        "RxJS",
+        "Rx",
+        "ReactiveX",
+        "Observable",
+        "Observer",
+        "Module",
+        "ES2015",
+        "ES2016",
+        "ES2017",
+        "ES6",
+        "ES7",
+        "ES8",
+        "Typescript"
+    ],
+    "contributors": [
+        {
+            "name": "Nicolas Jessel",
+            "url": "https://github.com/akanass"
+        }
+    ],
+    "license": "SEE LICENSE IN https://github.com/akanass/nestjsx-crypto/blob/master/LICENSE.md",
+    "bugs": {
+        "url": "https://github.com/akanass/nestjsx-crypto/issues"
+    },
+    "homepage": "https://github.com/akanass/nestjsx-crypto#readme",
+    "dependencies": {
+        "@akanass/rx-crypto": "^1.0.0"
+    },
+    "devDependencies": {
+        "@nestjs/common": "^6.6.3",
+        "@nestjs/core": "^6.6.3",
+        "@types/fs-extra": "^8.0.0",
+        "@types/jest": "^24.0.18",
+        "coveralls": "^3.0.6",
+        "fs-extra": "^8.1.0",
+        "jest": "^24.9.0",
+        "reflect-metadata": "^0.1.13",
+        "rimraf": "^3.0.0",
+        "rxjs": "^6.5.2",
+        "ts-jest": "^24.0.2",
+        "ts-node": "^8.3.0",
+        "tslint": "^5.19.0",
+        "typescript": "^3.6.2"
+    },
+    "peerDependencies": {
+        "@nestjs/common": "^6.6.3",
+        "@nestjs/core": "^6.6.3",
+        "reflect-metadata": "^0.1.13",
+        "rxjs": "^6.5.2"
+    },
+    "engines": {
+        "node": ">=7.0.0"
+    }
+}
