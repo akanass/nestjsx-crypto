@@ -22,7 +22,9 @@
         <img src="http://reactivex.io/assets/Rx_Logo_S.png"
              align="right" alt="ReactiveX logo" width="50" height="50" style="border:none;" />
     </a>
-    <a href="https://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" height="50" alt="Nest Logo" /></a>
+    <a href="https://nestjs.com/" target="blank">
+        <img src="https://nestjs.com/img/logo_text.svg" height="50" alt="Nest Logo" align="right" style="border:none;" />
+    </a>
 </div>
 </div>
 
