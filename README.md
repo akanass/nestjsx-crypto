@@ -1,16 +1,16 @@
 <div style="margin-bottom:20px;">
 <div style="line-height:60px">
-    <a href="https://travis-ci.org/akanass/rx-crypto.svg?branch=next">
-        <img src="https://travis-ci.org/akanass/rx-crypto.svg?branch=next" alt="build" />
+    <a href="https://travis-ci.org/akanass/nestjsx-crypto.svg?branch=next">
+        <img src="https://travis-ci.org/akanass/nestjsx-crypto.svg?branch=next" alt="build" />
     </a>
-    <a href="https://coveralls.io/github/akanass/rx-crypto?branch=next">
-        <img src="https://coveralls.io/repos/github/akanass/rx-crypto/badge.svg?branch=next" alt="coveralls" />
+    <a href="https://coveralls.io/github/akanass/nestjsx-crypto?branch=next">
+        <img src="https://coveralls.io/repos/github/akanass/nestjsx-crypto/badge.svg?branch=next" alt="coveralls" />
     </a>
-    <a href="https://david-dm.org/akanass/rx-crypto">
-        <img src="https://david-dm.org/akanass/rx-crypto.svg" alt="dependencies" />
+    <a href="https://david-dm.org/akanass/nestjsx-crypto">
+        <img src="https://david-dm.org/akanass/nestjsx-crypto.svg" alt="dependencies" />
     </a>
-    <a href="https://david-dm.org/akanass/rx-crypto?type=dev">
-        <img src="https://david-dm.org/akanass/rx-crypto/dev-status.svg" alt="devDependencies" />
+    <a href="https://david-dm.org/akanass/nestjsx-crypto?type=dev">
+        <img src="https://david-dm.org/akanass/nestjsx-crypto/dev-status.svg" alt="devDependencies" />
     </a>
 </div>
 <div>
@@ -22,21 +22,23 @@
         <img src="http://reactivex.io/assets/Rx_Logo_S.png"
              align="right" alt="ReactiveX logo" width="50" height="50" style="border:none;" />
     </a>
+    <a href="https://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" height="50" alt="Nest Logo" /></a>
 </div>
 </div>
 
-# Rx-Crypto
+# NestJSX-Crypto
 
-`Crypto` library provides some functions for security features like `AES key`, `Key pair`, `PKCS12`, `RSA key`, `Certificate`, `JWT` and more.
+`Crypto` module for [NestJS](https://nestjs.com/) framework provides some functions for security features like `AES key`, `Key pair`, `PKCS12`, `RSA key`, `Certificate`, `JWT` and more.
 
-We use existing node modules to provide these functions: [NodeRSA](https://github.com/rzcoder/node-rsa), [PEM](https://github.com/Dexus/pem), [JWT](https://github.com/auth0/node-jsonwebtoken) and [RandomString](https://github.com/klughammer/node-randomstring) but we add `Observable` feature for asynchronous and stream processes.
+This module is a wrapper to use [@akanass-rx-crypto](https://github.com/akanass/rx-crypto) library inside [NestJS](https://nestjs.com/) `application` in an easy way.
 
-**All most important crypto features in only one library.**
+**All most important crypto features in only one module.**
 
 ## Table of contents
 
-* [Using rx-crypto library](#using-rx-crypto-library)
+* [Using crypto module inside NestJS application](#using-crypto-module-inside-nestjs-application)
     * [Yarn or NPM it in your package.json](#yarn-or-npm-it-in-your-packagejson)
+    * [Import CryptoModule](#import-cryptomodule)
     * [Use it anywhere](#use-it-anywhere)
 * [API in Detail](#api-in-detail)
 * [Contributing](#contributing)
@@ -44,39 +46,66 @@ We use existing node modules to provide these functions: [NodeRSA](https://githu
 * [Maintainers](#maintainers)
 * [License](#license)
 
-## Using rx-crypto library
+## Using crypto module inside NestJS application
 
 ### `yarn` or `npm` it in your `package.json`
 
 ```bash
-$ npm install --save @akanass/rx-crypto rxjs
+$ npm install --save @akanass/nestjsx-crypto @nestjs/common rxjs reflect-metadata
 
 or
 
-$ yarn add @akanass/rx-crypto rxjs
+$ yarn add @akanass/nestjsx-crypto @nestjs/common rxjs reflect-metadata
 ```
 
 ```javascript
 "dependencies": {
-    "@akanass/rx-crypto": "^1.0.0",
-    "rxjs": "^6.5.2",
+    "@akanass/nestjsx-crypto": "^1.0.0",
+    "@nestjs/common": "^6.6.3",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.2"
     //...
 }
 //...
 ```
 
+### import `CryptoModule`
+
+```typescript
+import { CryptoModule } from '@akanass/nestjsx-crypto';
+import { Module } from '@nestjs/common';
+import { NestJSServiceWithCrypto } from './crypto.service.ts';
+
+@Module({
+    imports: [
+        CryptoModule
+    ],
+    providers: [
+        NestJSServiceWithCrypto
+    ]
+})
+export class NestJSModuleNeedsCryptoModule {}
+```
+
 ### use it anywhere
 
-You can use `AES`, `Hash`, `PEM`, `RandomString`, `JWT` and `RSA` anywhere in your own library or script.
+You can use `AesService`, `HashService`, `PemService`, `RandomStringService`, `JwtService` and `RsaService` anywhere in your module with **dependency injection**.
 
-```javascript
-import { RSA, NodeRSA } from '@akanass/rx-crypto';
+```typescript
+import { RsaService, NodeRSA } from '@akanass/nestjsx-crypto';
+import { Injectable } from '@nestjs/common';
 
-const rsa: RSA = new RSA();
-rsa.createKey().subscribe(
-    (k: NodeRSA) => console.log(k), // Show NodeRSA instance in console
-    e => console.error(e) // Show error in console
-);
+@Injectable()
+export class NestJSServiceWithCrypto {
+    constructor(private readonly _rsaService: RsaService) {}
+    
+    createRsaKey(): void {
+        this._rsaService.createKey().subscribe(
+            (k: NodeRSA) => console.log(k), // Show NodeRSA instance in console
+            e => console.error(e) // Show error in console
+        );
+    }
+}
 ```
 
 [Back to top](#table-of-contents)
@@ -85,12 +114,12 @@ rsa.createKey().subscribe(
 
 We implemented some services and to see their details go to documentation folder:
 
-* [./documentation/AES.md](https://github.com/akanass/rx-crypto/blob/master/documentation/AES.md)
-* [./documentation/Hash.md](https://github.com/akanass/rx-crypto/blob/master/documentation/Hash.md)
-* [./documentation/JWT.md](https://github.com/akanass/rx-crypto/blob/master/documentation/JWT.md)
-* [./documentation/PEM.md](https://github.com/akanass/rx-crypto/blob/master/documentation/PEM.md)
-* [./documentation/RandomString.md](https://github.com/akanass/rx-crypto/blob/master/documentation/RandomString.md)
-* [./documentation/RSA.md](https://github.com/akanass/rx-crypto/blob/master/documentation/RSA.md)
+* [./documentation/AesService.md](https://github.com/akanass/nestjsx-crypto/blob/master/documentation/AesService.md)
+* [./documentation/HashService.md](https://github.com/akanass/nestjsx-crypto/blob/master/documentation/HashService.md)
+* [./documentation/JwtService.md](https://github.com/akanass/nestjsx-crypto/blob/master/documentation/JwtService.md)
+* [./documentation/PemService.md](https://github.com/akanass/nestjsx-crypto/blob/master/documentation/PemService.md)
+* [./documentation/RandomStringService.md](https://github.com/akanass/nestjsx-crypto/blob/master/documentation/RandomStringService.md)
+* [./documentation/RsaService.md](https://github.com/akanass/nestjsx-crypto/blob/master/documentation/RsaService.md)
 
 [Back to top](#table-of-contents)
 
@@ -109,14 +138,14 @@ To set up your development environment:
 
 ## Change History
 
-* v1.0.0 (2019-08-27)
-    * Implementation of `library` with `AES`, `Hash`, `PEM`, `RandomString` and `RSA`
-    * Implementation of `Observable's` operators for `AES` and `RSA` features.
+* v1.0.0 (2019-09-03)
+    * Implementation of `CryptoModule` with `AesService`, `HashService`, `JwtService`, `PemService`, `RandomStringService` and `RsaService`
+    * Implementation of `Observable's` operators for `AesService` and `RsaService` features.
     * Related tests.
     * Documentation.
 
 ## License
 
-Copyright (c) 2019 **Nicolas Jessel** Licensed under the [MIT license](https://github.com/akanass/rx-crypto/blob/next/LICENSE.md).
+Copyright (c) 2019 **Nicolas Jessel** Licensed under the [MIT license](https://github.com/akanass/nestjsx-crypto/blob/master/LICENSE.md).
 
 [Back to top](#table-of-contents)
