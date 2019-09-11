@@ -63,9 +63,9 @@ $ yarn add @akanass/nestjsx-crypto @nestjs/common rxjs reflect-metadata
 ```javascript
 "dependencies": {
     "@akanass/nestjsx-crypto": "^1.0.0",
-    "@nestjs/common": "^6.6.3",
+    "@nestjs/common": "^6.6.6",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^6.5.2"
+    "rxjs": "^6.5.3"
     //...
 }
 //...
@@ -140,7 +140,7 @@ To set up your development environment:
 
 ## Change History
 
-* v1.0.0 (2019-09-03)
+* v1.0.0 (2019-09-12)
     * Implementation of `CryptoModule` with `AesService`, `HashService`, `JwtService`, `PemService`, `RandomStringService` and `RsaService`
     * Implementation of `Observable's` operators for `AesService` and `RsaService` features.
     * Related tests.
