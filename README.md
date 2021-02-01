@@ -1,10 +1,10 @@
 <div style="margin-bottom:20px;">
 <div style="line-height:60px">
-    <a href="https://travis-ci.org/akanass/nestjsx-crypto.svg?branch=next">
-        <img src="https://travis-ci.org/akanass/nestjsx-crypto.svg?branch=next" alt="build" />
+    <a href="https://travis-ci.org/akanass/nestjsx-crypto.svg?branch=master">
+        <img src="https://travis-ci.org/akanass/nestjsx-crypto.svg?branch=master" alt="build" />
     </a>
-    <a href="https://coveralls.io/github/akanass/nestjsx-crypto?branch=next">
-        <img src="https://coveralls.io/repos/github/akanass/nestjsx-crypto/badge.svg?branch=next" alt="coveralls" />
+    <a href="https://coveralls.io/github/akanass/nestjsx-crypto?branch=master">
+        <img src="https://coveralls.io/repos/github/akanass/nestjsx-crypto/badge.svg?branch=master" alt="coveralls" />
     </a>
     <a href="https://david-dm.org/akanass/nestjsx-crypto">
         <img src="https://david-dm.org/akanass/nestjsx-crypto.svg" alt="dependencies" />
@@ -62,10 +62,10 @@ $ yarn add @akanass/nestjsx-crypto @nestjs/common rxjs reflect-metadata
 
 ```javascript
 "dependencies": {
-    "@akanass/nestjsx-crypto": "^1.0.0",
-    "@nestjs/common": "^6.6.6",
+    "@akanass/nestjsx-crypto": "^1.1.0",
+    "@nestjs/common": "^7.6.7",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^6.5.3"
+    "rxjs": "^6.6.3"
     //...
 }
 //...
@@ -139,7 +139,10 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
-
+* v1.1.0 (2021-01-31)
+    * Update packages' versions
+    * Fix tests
+    * Fix `tslint`
 * v1.0.0 (2019-09-12)
     * Implementation of `CryptoModule` with `AesService`, `HashService`, `JwtService`, `PemService`, `RandomStringService` and `RsaService`
     * Implementation of `Observable's` operators for `AesService` and `RsaService` features.
