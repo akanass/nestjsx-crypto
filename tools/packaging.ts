@@ -1,6 +1,6 @@
 // import libraries
-import { Observable, forkJoin } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { forkJoin, Observable } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 import * as fs from 'fs-extra';
 
 /**
@@ -35,6 +35,18 @@ class Packaging {
     }
 
     /**
+     * Function that _copy all files in dist directory
+     */
+    process() {
+        forkJoin(
+            this._files.map(
+                (fileObject: FileObject) => this._copy(fileObject.name)
+            )
+        )
+            .subscribe(() => null, error => console.error(error));
+    }
+
+    /**
      * Function to copy one file
      *
      * @param file {string}
@@ -48,7 +60,7 @@ class Packaging {
         }
 
         // copy other files
-        return <Observable<any>> new Observable((observer) => {
+        return <Observable<any>>new Observable((observer) => {
             fs.stat(`${this._srcPath}${file}`, (error, stats) => {
                 if (error) {
                     console.error('doesn\'t exist on copy =>', error.message);
@@ -107,7 +119,7 @@ class Packaging {
         // read package.json
         return readJson(`${this._srcPath}${file}`)
             .pipe(
-                flatMap(packageObj => {
+                mergeMap(packageObj => {
                     // delete obsolete data in package.json
                     delete packageObj.scripts;
                     delete packageObj.devDependencies;
@@ -116,18 +128,6 @@ class Packaging {
                     return writeJson(`${this._destPath}${file}`, packageObj);
                 })
             );
-    }
-
-    /**
-     * Function that _copy all files in dist directory
-     */
-    process() {
-        forkJoin(
-            this._files.map(
-                (fileObject: FileObject) => this._copy(fileObject.name)
-            )
-        )
-            .subscribe(() => null, error => console.error(error));
     }
 }
 

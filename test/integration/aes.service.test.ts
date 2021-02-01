@@ -31,8 +31,7 @@ describe('- Integration aes.service.test.ts file', () => {
      */
     test('- `AesService.createKey()` function must return an Observable with error if AesService key parameters are wrong', (done) => {
         aesService.createKey(null, null).subscribe(() => null, err => {
-            expect(err.message).toBe('The "password" argument must be one of type string, ' +
-                'Buffer, TypedArray, or DataView. Received type object');
+            expect(err.message).toBe('The "password" argument must be of type string or an instance of ArrayBuffer, Buffer, TypedArray, or DataView. Received null');
             done();
         });
     });
@@ -122,8 +121,7 @@ describe('- Integration aes.service.test.ts file', () => {
                 encryptWithAesKey(Buffer.from('data'))
             )
             .subscribe(() => null, err => {
-                expect(err.message).toBe('The first argument must be one of type string, ' +
-                    'Buffer, ArrayBuffer, Array, or Array-like Object. Received type object');
+                expect(err.message).toBe('The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received null');
                 done();
             });
     });
@@ -138,8 +136,7 @@ describe('- Integration aes.service.test.ts file', () => {
                 decryptWithAesKey(Buffer.from('a3d4bb8fcb8ec0e24a86cef07a28e3af', 'hex'))
             )
             .subscribe(() => null, err => {
-                expect(err.message).toBe('The first argument must be one of type string, ' +
-                    'Buffer, ArrayBuffer, Array, or Array-like Object. Received type object');
+                expect(err.message).toBe('The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received null');
                 done();
             });
     });
