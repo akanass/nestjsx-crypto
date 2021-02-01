@@ -1,5 +1,5 @@
 {
-    "rules": {
+  "rules": {
     "class-name": true,
     "comment-format": [
       true,
@@ -20,8 +20,9 @@
     "member-access": false,
     "member-ordering": [
       true,
-      "static-before-instance",
-      "variables-before-functions"
+      {
+        "order": "fields-first"
+      }
     ],
     "no-arg": true,
     "no-bitwise": true,
@@ -38,7 +39,10 @@
     "no-duplicate-variable": true,
     "no-empty": false,
     "no-eval": true,
-    "no-inferrable-types": [true, "ignore-params"],
+    "no-inferrable-types": [
+      true,
+      "ignore-params"
+    ],
     "no-shadowed-variable": false,
     "no-string-literal": false,
     "no-switch-case-fall-through": true,
