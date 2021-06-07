@@ -6,12 +6,6 @@
     <a href="https://coveralls.io/github/akanass/nestjsx-crypto?branch=master">
         <img src="https://coveralls.io/repos/github/akanass/nestjsx-crypto/badge.svg?branch=master" alt="coveralls" />
     </a>
-    <a href="https://david-dm.org/akanass/nestjsx-crypto">
-        <img src="https://david-dm.org/akanass/nestjsx-crypto.svg" alt="dependencies" />
-    </a>
-    <a href="https://david-dm.org/akanass/nestjsx-crypto?type=dev">
-        <img src="https://david-dm.org/akanass/nestjsx-crypto/dev-status.svg" alt="devDependencies" />
-    </a>
 </div>
 <div>
     <a href="https://www.typescriptlang.org/docs/tutorial.html">
@@ -62,10 +56,10 @@ $ yarn add @akanass/nestjsx-crypto @nestjs/common rxjs reflect-metadata
 
 ```javascript
 "dependencies": {
-    "@akanass/nestjsx-crypto": "^1.1.0",
-    "@nestjs/common": "^7.6.7",
+    "@akanass/nestjsx-crypto": "^2.0.0",
+    "@nestjs/common": "^7.6.17",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^6.6.3"
+    "rxjs": "^7.1.0"
     //...
 }
 //...
@@ -139,6 +133,10 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v2.0.0 (2021-06-07)
+    * Update packages' versions
+    * Latest `@akanass/rx-crypto` version `2.0.0`
+    * Latest `rxjs` version `7.1.0`
 * v1.1.0 (2021-01-31)
     * Update packages' versions
     * Fix tests
