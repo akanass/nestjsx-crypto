@@ -149,6 +149,6 @@ To set up your development environment:
 
 ## License
 
-Copyright (c) 2019 **Nicolas Jessel** Licensed under the [MIT license](https://github.com/akanass/nestjsx-crypto/blob/master/LICENSE.md).
+Copyright (c) 2021 **Nicolas Jessel** Licensed under the [MIT license](https://github.com/akanass/nestjsx-crypto/blob/master/LICENSE.md).
 
 [Back to top](#table-of-contents)

@@ -1,7 +1,7 @@
 The MIT License (MIT)
 ====
 
-**Copyright (c) 2019 [Nicolas Jessel](https://github.com/akanass)**
+**Copyright (c) 2021 [Nicolas Jessel](https://github.com/akanass)**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
