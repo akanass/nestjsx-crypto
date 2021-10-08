@@ -56,10 +56,10 @@ $ yarn add @akanass/nestjsx-crypto @nestjs/common rxjs reflect-metadata
 
 ```javascript
 "dependencies": {
-    "@akanass/nestjsx-crypto": "^2.0.0",
-    "@nestjs/common": "^7.6.17",
+    "@akanass/nestjsx-crypto": "^3.0.0",
+    "@nestjs/common": "^8.0.11",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.1.0"
+    "rxjs": "^7.4.0"
     //...
 }
 //...
@@ -133,6 +133,12 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v3.0.0 (2021-10-08)
+    * Update packages' versions
+    * Latest `@akanass/rx-crypto` version `2.2.0`
+    * Latest `rxjs` version `7.4.0`
+    * Latest `nestjs` version `8.0.11`
+    * Update tests
 * v2.0.0 (2021-06-07)
     * Update packages' versions
     * Latest `@akanass/rx-crypto` version `2.0.0`
