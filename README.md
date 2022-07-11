@@ -1,12 +1,4 @@
 <div style="margin-bottom:20px;">
-<div style="line-height:60px">
-    <a href="https://travis-ci.org/akanass/nestjsx-crypto.svg?branch=master">
-        <img src="https://travis-ci.org/akanass/nestjsx-crypto.svg?branch=master" alt="build" />
-    </a>
-    <a href="https://coveralls.io/github/akanass/nestjsx-crypto?branch=master">
-        <img src="https://coveralls.io/repos/github/akanass/nestjsx-crypto/badge.svg?branch=master" alt="coveralls" />
-    </a>
-</div>
 <div>
     <a href="https://www.typescriptlang.org/docs/tutorial.html">
         <img src="https://cdn-images-1.medium.com/max/800/1*8lKzkDJVWuVbqumysxMRYw.png"
@@ -133,6 +125,9 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v4.0.0 (2022-07-11)
+    * Update packages' versions
+    * Latest `nestjs` version `9.0.2`
 * v3.0.0 (2021-10-08)
     * Update packages' versions
     * Latest `@akanass/rx-crypto` version `2.2.0`
